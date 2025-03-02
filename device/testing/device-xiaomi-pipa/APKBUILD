@@ -12,7 +12,6 @@ depends="
 	mesa-vulkan-freedreno
 	mkbootimg
 	postmarketos-base
-	postmarketos-update-kernel
 	qbootctl
 	swclock-offset
 	linux-xiaomi-pipa

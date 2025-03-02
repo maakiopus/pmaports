@@ -4,7 +4,7 @@
 
 _flavor="xiaomi-pipa"
 pkgname=linux-$_flavor
-pkgver=6.6.0_rc6
+pkgver=6.12.0
 pkgrel=1
 pkgdesc="Mainline kernel fork for Xiaomi Pad 6"
 arch="aarch64"
@@ -24,16 +24,17 @@ makedepends="
 	installkernel
 	openssl-dev
 	perl
+	python3
 "
 
 # Source
-_tag="pipa-initial-display"
+_commit="8528ad7e34384123c1a00e97c835b6e27dda4a57"
 _config="config-$_flavor.$arch"
 source="
-	$pkgname-$_tag.tar.gz::https://github.com/pipa-mainline/linux/archive/refs/tags/$_tag.tar.gz
+	$pkgname-$_commit.zip::https://github.com/pipa-mainline/linux/archive/$_commit.zip
 	$_config
 "
-builddir="$srcdir/linux-$_tag"
+builddir="$srcdir/linux-$_commit"
 
 prepare() {
 	default_prepare
@@ -61,6 +62,6 @@ package() {
 }
 
 sha512sums="
-0b804c25725c2846e4c939738cc6afd62c6afbcc031c52559eeb6cace195a47a0617eb72f49e5b8a718f2e74d641d7b7edbfa1f003548311e6629d5b47b3a563  linux-xiaomi-pipa-pipa-initial-display.tar.gz
+705a6149ca8f223ec19e299dbb27c38dd4945be26b02dd22de35385ee56ec99b0ee5da4695f12a0741e28d4a3d965eee882f1e967c935e649274f373259edfb4  linux-xiaomi-pipa-8528ad7e34384123c1a00e97c835b6e27dda4a57.zip
 7ff1eece377110272a8fd6ebeda49c0474f5028d6e44a1e8b4bec9542651110370234a9649a46cb2414611a6aaf727be59d333b9b0cb4a0c7bfa95967d266178  config-xiaomi-pipa.aarch64
 "
